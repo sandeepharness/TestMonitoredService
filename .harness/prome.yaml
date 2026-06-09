@@ -1,3 +1,13 @@
 service:
   name: svc-prome-remote
   identifier: svcpromeremote
+  description: Test service for CV Verify step
+  tags: {}
+  serviceDefinition:
+    type: Kubernetes
+    spec:
+      variables:
+        - name: env
+          type: String
+          value: test
+  
