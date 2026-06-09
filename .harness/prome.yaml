@@ -1,0 +1,3 @@
+service:
+  name: svc-prome-remote
+  identifier: svcpromeremote
