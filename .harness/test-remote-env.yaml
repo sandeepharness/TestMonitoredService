@@ -1,0 +1,8 @@
+environment:
+  name: prome-remote-env
+  identifier: promeremoteenv
+  description: ""
+  tags: {}
+  type: Production
+  orgIdentifier: default
+  projectIdentifier: gitxtest
