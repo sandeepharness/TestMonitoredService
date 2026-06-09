@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  identifier: svcpromeremote_promeremoteenv
+  name: svcpromeremote_promeremoteenv
+  type: Application
+  description: ""
+  serviceRef: svcpromeremote
+  environmentRef: promeremoteenv
+  environmentRefList:
+  - promeremoteenv
+  sources: {}
+  enabled: false
