@@ -1,0 +1,3 @@
+service:
+  name: prome-svc-01
+  identifier: promesvc01
