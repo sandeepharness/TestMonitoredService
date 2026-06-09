@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  identifier: test001_realenv
+  name: test001_realenv
+  type: Application
+  description: ""
+  serviceRef: test001
+  environmentRef: realenv
+  environmentRefList:
+  - realenv
+  sources: {}
+  enabled: false
