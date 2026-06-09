@@ -8,41 +8,36 @@ monitoredService:
   serviceRef: svcpromeremote
   environmentRef: promeremoteenv
   environmentRefList:
-  - promeremoteenv
+    - promeremoteenv
   sources:
     healthSources:
-    - name: prome-hs
-      identifier: promehs
-      type: Prometheus
-      spec:
-        connectorRef: promlocal
-        metricPacks:
-        - identifier: Custom
-        metricDefinitions:
-        - identifier: prometheus_metric
-          metricName: Prometheus Metric
-          riskProfile:
-            category: Performance
-            metricType: RESP_TIME
-            riskCategory: Performance_ResponseTime
-            thresholdTypes:
-            - ACT_WHEN_LOWER
-          analysis:
-            liveMonitoring:
-              enabled: false
-            deploymentVerification:
-              enabled: true
+      - name: prome-hs
+        identifier: promehs
+        type: Prometheus
+        spec:
+          connectorRef: promlocal
+          metricPacks:
+            - identifier: Custom
+          metricDefinitions:
+            - identifier: prometheus_metric
+              metricName: Prometheus Metric
+              riskProfile:
+                category: Performance
+                metricType: RESP_TIME
+                riskCategory: Performance_ResponseTime
+                thresholdTypes:
+                  - ACT_WHEN_LOWER
+              analysis:
+                liveMonitoring:
+                  enabled: false
+                deploymentVerification:
+                  enabled: true
+                  serviceInstanceFieldName: instance
+              sli:
+                enabled: false
+              query: |-
+                (sum(rate(http_server_request_duration_seconds_count{k8s_namespace_name="online-boutique",http_response_status_code!~"5.."}[5m])) / sum(rate(http_server_request_duration_seconds_count{k8s_namespace_name="online-boutique"}[5m]))) * 100
+              groupName: G1
               serviceInstanceFieldName: instance
-            riskProfile:
-              category: Performance
-              metricType: RESP_TIME
-              riskCategory: Performance_ResponseTime
-              thresholdTypes:
-              - ACT_WHEN_LOWER
-          sli:
-            enabled: false
-          query: "(sum(rate(http_server_request_duration_seconds_count{k8s_namespace_name="online-boutique",http_response_status_code!~"5.."}[5m])) / sum(rate(http_server_request_duration_seconds_count{k8s_namespace_name="online-boutique"}[5m]))) * 100"
-          groupName: G1
-          serviceInstanceFieldName: instance
-          isManualQuery: true
+              isManualQuery: true
   enabled: false
