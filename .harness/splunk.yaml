@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  identifier: splunksvc_splunkenv
+  name: splunksvc_splunkenv
+  type: Application
+  description: ""
+  serviceRef: splunksvc
+  environmentRef: splunkenv
+  environmentRefList:
+  - splunkenv
+  sources: {}
+  enabled: false
