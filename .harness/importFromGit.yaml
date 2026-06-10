@@ -5,7 +5,7 @@ monitoredService:
   name: svcpromeremote_promeremoteenv5
   type: Application
   description: ""
-  serviceRef: svcpromeremote
+  serviceRef: promesvc01
   environmentRef: promeremoteenv
   environmentRefList:
     - promeremoteenv
