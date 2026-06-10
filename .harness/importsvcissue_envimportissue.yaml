@@ -38,7 +38,7 @@ monitoredService:
               type: Absolute
               spec:
                 lessThan: 10.0
-                greaterThan: 0.0
+                greaterThan: 5.0
             type: FailImmediately
         metricDefinitions:
         - identifier: prometheus_metric
