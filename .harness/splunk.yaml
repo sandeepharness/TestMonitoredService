@@ -11,6 +11,40 @@ monitoredService:
   - splunkenv
   sources:
     healthSources:
+    - name: prome
+      identifier: prome
+      type: Prometheus
+      spec:
+        connectorRef: promlocal
+        metricPacks:
+        - identifier: Custom
+        metricDefinitions:
+        - identifier: prometheus_metric
+          metricName: Prometheus Metric
+          riskProfile:
+            category: Performance
+            metricType: RESP_TIME
+            riskCategory: Performance_ResponseTime
+            thresholdTypes:
+            - ACT_WHEN_LOWER
+          analysis:
+            liveMonitoring:
+              enabled: false
+            deploymentVerification:
+              enabled: true
+              serviceInstanceFieldName: instance
+            riskProfile:
+              category: Performance
+              metricType: RESP_TIME
+              riskCategory: Performance_ResponseTime
+              thresholdTypes:
+              - ACT_WHEN_LOWER
+          sli:
+            enabled: false
+          query: "avg(up{job=\"cv-datagen\"})"
+          groupName: G1
+          serviceInstanceFieldName: instance
+          isManualQuery: true
     - name: splunk-hs
       identifier: splunkhs
       type: Splunk
