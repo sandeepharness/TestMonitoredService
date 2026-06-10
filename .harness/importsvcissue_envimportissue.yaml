@@ -51,7 +51,7 @@ monitoredService:
               - ACT_WHEN_LOWER
           sli:
             enabled: false
-          query: "avg(up{job=\"blast-radius-sim1\"})"
+          query: "avg(up{job=\"blast-radius-sim\"})"
           groupName: G1
           serviceInstanceFieldName: instance
           isManualQuery: true
