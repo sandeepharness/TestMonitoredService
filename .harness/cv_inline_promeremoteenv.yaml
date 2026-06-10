@@ -1,14 +1,14 @@
 monitoredService:
   orgIdentifier: default
   projectIdentifier: gitxtestimport
-  identifier: cv_inline_promeremoteenv
-  name: cv_inline_promeremoteenv
+  identifier: recordedsvc_testenv
+  name: recordedsvc_testenv
   type: Application
   description: ""
-  serviceRef: cv_inline
-  environmentRef: promeremoteenv
+  serviceRef: recordedsvc
+  environmentRef: testenv
   environmentRefList:
-    - promeremoteenv
+    - testenv
   sources:
     healthSources:
       - name: prome-hs
