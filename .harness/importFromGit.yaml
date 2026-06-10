@@ -1,8 +1,8 @@
 monitoredService:
   orgIdentifier: default
   projectIdentifier: gitxtestimport
-  identifier: svcpromeremote_promeremoteenv5
-  name: svcpromeremote_promeremoteenv5
+  identifier: promesvc01_promeremoteenv
+  name: promesvc01_promeremoteenv
   type: Application
   description: ""
   serviceRef: promesvc01
