@@ -33,8 +33,8 @@ monitoredService:
           metricName: Prometheus Metric
           riskProfile:
             category: Performance
-            metricType: RESP_TIME
-            riskCategory: Performance_ResponseTime
+            metricType: OTHER
+            riskCategory: Performance_Other
             thresholdTypes:
             - ACT_WHEN_LOWER
           analysis:
@@ -43,11 +43,15 @@ monitoredService:
             deploymentVerification:
               enabled: true
               serviceInstanceFieldName: instance
+            riskProfile:
+              category: Performance
+              metricType: OTHER
+              riskCategory: Performance_Other
+              thresholdTypes:
+              - ACT_WHEN_LOWER
           sli:
             enabled: false
-          query: "(sum(rate(http_server_request_duration_seconds_count{k8s_namespace_name=\"\
-            online-boutique\",http_response_status_code!~\"5..\"}[5m])) / sum(rate(http_server_request_duration_seconds_count{k8s_namespace_name=\"\
-            online-boutique\"}[5m]))) * 100"
+          query: "avg(up{job=\"cv-datagen\"})"
           groupName: G1
           serviceInstanceFieldName: instance
           isManualQuery: true
