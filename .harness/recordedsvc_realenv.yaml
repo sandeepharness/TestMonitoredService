@@ -1,14 +1,14 @@
 monitoredService:
   orgIdentifier: default
   projectIdentifier: gitxtestimport
-  identifier: recordedsvc_testenv
-  name: recordedsvc_testenv
+  identifier: recordedsvc_realenv
+  name: recordedsvc_realenv
   type: Application
   description: ""
   serviceRef: recordedsvc
-  environmentRef: testenv
+  environmentRef: realenv
   environmentRefList:
-    - testenv
+    - realenv
   sources:
     healthSources:
       - name: prome-hs
