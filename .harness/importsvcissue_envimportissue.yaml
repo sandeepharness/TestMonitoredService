@@ -63,7 +63,9 @@ monitoredService:
               - ACT_WHEN_LOWER
           sli:
             enabled: false
-          query: "avg(up{job=\"blast-radius-sim\"})"
+          query: "(sum(rate(http_server_request_duration_seconds_count{k8s_namespace_name=\"\
+            online-boutique\",http_response_status_code!~\"5..\"}[5m])) / sum(rate(http_server_request_duration_seconds_count{k8s_namespace_name=\"\
+            online-boutique\"}[5m]))) * 100"
           groupName: G1
           serviceInstanceFieldName: instance
           isManualQuery: true
