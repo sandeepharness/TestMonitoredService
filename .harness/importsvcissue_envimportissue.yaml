@@ -69,4 +69,23 @@ monitoredService:
         - name: SPLUNK Logs Query
           query: index=_internal " error " NOT debug source=*splunkd.log*
           serviceInstanceIdentifier: "['host']"
+    - name: hs-dyna
+      identifier: hsdyna
+      type: DynatraceGrailLogs
+      version: v2
+      spec:
+        connectorRef: dynahs
+        queryDefinitions:
+        - identifier: G1
+          name: G1
+          groupName: Logs Group
+          queryParams:
+            serviceInstanceField: "['log.source']"
+            timeStampIdentifier: "['timestamp']"
+            messageIdentifier: "['content']"
+          liveMonitoringEnabled: false
+          continuousVerificationEnabled: false
+          sliEnabled: false
+          query: fetch logs| filter loglevel == "ERROR"
+        healthSourceParams: {}
   enabled: false
