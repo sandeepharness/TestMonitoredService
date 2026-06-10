@@ -28,6 +28,18 @@ monitoredService:
         connectorRef: promlocal
         metricPacks:
         - identifier: Custom
+          metricThresholds:
+          - metricName: Prometheus Metric
+            metricType: Custom
+            spec:
+              action: FailImmediately
+              spec: {}
+            criteria:
+              type: Absolute
+              spec:
+                lessThan: 10.0
+                greaterThan: 0.0
+            type: FailImmediately
         metricDefinitions:
         - identifier: prometheus_metric
           metricName: Prometheus Metric
