@@ -5,7 +5,7 @@ monitoredService:
   name: cv_inline_promeremoteenv
   type: Application
   description: ""
-  serviceRef: promesvc01
+  serviceRef: cv_inline
   environmentRef: promeremoteenv
   environmentRefList:
     - promeremoteenv
