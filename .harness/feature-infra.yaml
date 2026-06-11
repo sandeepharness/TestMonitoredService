@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: feature-branch-infra
+  identifier: featurebranchinfra
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  environmentRef: featurebranchenv
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: k8conn
+    namespace: default
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: true
