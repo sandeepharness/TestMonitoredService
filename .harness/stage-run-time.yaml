@@ -1,0 +1,25 @@
+pipeline:
+  name: stage-runtime-pip
+  identifier: stageruntimepip
+  projectIdentifier: gitxtest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: stage-runtime1
+        identifier: stageruntime1
+        tags: {}
+        template:
+          templateRef: Stagetempruntime
+          versionLabel: v1
+          templateInputs:
+            type: Deployment
+            spec:
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
