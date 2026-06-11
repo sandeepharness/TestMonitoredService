@@ -9,5 +9,16 @@ monitoredService:
   environmentRef: mainbranchenv
   environmentRefList:
   - mainbranchenv
-  sources: {}
+  sources:
+    healthSources:
+    - name: splunk-remote
+      identifier: splunkremote
+      type: Splunk
+      spec:
+        connectorRef: splunkhs
+        feature: Splunk Cloud Logs
+        queries:
+        - name: SPLUNK Logs Query
+          query: index=_internal " error " NOT debug source=*splunkd.log*
+          serviceInstanceIdentifier: "['host']"
   enabled: false
