@@ -19,6 +19,7 @@ monitoredService:
         feature: Splunk Cloud Logs
         queries:
         - name: SPLUNK Logs Query
-          query: index=_internal " error " NOT debug source=*splunkd.log*
-          serviceInstanceIdentifier: "['host']"
+          query: error OR failed OR severe OR ( sourcetype=access_* ( 404 OR 500 OR
+            503 ) )
+          serviceInstanceIdentifier: ggg
   enabled: false
