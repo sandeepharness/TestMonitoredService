@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  identifier: comboinlinesvc_comboinlineenv
+  name: comboinlinesvc_comboinlineenv
+  type: Application
+  description: ""
+  serviceRef: comboinlinesvc
+  environmentRef: comboinlineenv
+  environmentRefList:
+  - comboinlineenv
+  sources: {}
+  enabled: false
