@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  identifier: featuresvc01_featureenv01
+  name: featuresvc01_featureenv01
+  type: Application
+  description: ""
+  serviceRef: featuresvc01
+  environmentRef: featureenv01
+  environmentRefList:
+  - featureenv01
+  sources: {}
+  enabled: false
