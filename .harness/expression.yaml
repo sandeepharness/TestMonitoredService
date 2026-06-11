@@ -1,0 +1,14 @@
+pipeline:
+  name: stage-expression
+  identifier: stageexpression
+  projectIdentifier: gitxtest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: expression-check
+        identifier: expressioncheck
+        tags: {}
+        template:
+          templateRef: runtimefeaturestage01
+          versionLabel: v1
