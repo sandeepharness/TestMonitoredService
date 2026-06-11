@@ -1,0 +1,6 @@
+environment:
+  name: main-branch-env
+  identifier: mainbranchenv
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  type: Production
