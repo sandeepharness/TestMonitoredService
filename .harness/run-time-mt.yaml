@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  identifier: runtimesvc_runtimeenv
+  name: runtimesvc_runtimeenv
+  type: Application
+  description: ""
+  serviceRef: runtimesvc
+  environmentRef: runtimeenv
+  environmentRefList:
+  - runtimeenv
+  sources: {}
+  enabled: false
