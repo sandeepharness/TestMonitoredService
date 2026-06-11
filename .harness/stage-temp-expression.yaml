@@ -76,4 +76,4 @@ template:
         type: String
         description: ""
         required: false
-        value: mainbranchenv
+        value: main-branch-infra
