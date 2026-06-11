@@ -1,0 +1,5 @@
+service:
+  name: feaure-branch-svc
+  identifier: feaurebranchsvc
+  orgIdentifier: default
+  projectIdentifier: gitxtest
