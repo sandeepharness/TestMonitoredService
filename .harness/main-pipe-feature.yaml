@@ -29,9 +29,13 @@ pipeline:
                     isMultiServicesOrEnvs: false
                     type: Rolling
                     monitoredService:
-                      type: Default
+                      type: Template
                       spec:
                         branch: test-run
+                        monitoredServiceTemplateRef: account.remotemts
+                        versionLabel: v1
+                        templateInputs: {}
+                        monitoredServiceTemplateGitBranch: main
                     spec:
                       sensitivity: HIGH
                       duration: 5m
