@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: main-branch-infra
+  identifier: mainbranchinfra
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  environmentRef: mainbranchenv
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: k8conn
+    namespace: default
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: true
