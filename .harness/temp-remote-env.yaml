@@ -1,0 +1,8 @@
+environment:
+  name: temp-remote-env
+  identifier: tempremoteenv
+  description: ""
+  tags: {}
+  type: Production
+  orgIdentifier: default
+  projectIdentifier: gitxtest
