@@ -9,5 +9,25 @@ monitoredService:
   environmentRef: envshubhendurepo
   environmentRefList:
   - envshubhendurepo
-  sources: {}
+  sources:
+    healthSources:
+    - name: v1-dyna-cross-repo
+      identifier: v1dynacrossrepo
+      type: DynatraceGrailLogs
+      version: v2
+      spec:
+        connectorRef: dynahs
+        queryDefinitions:
+        - identifier: g1
+          name: g1
+          groupName: Logs Group
+          queryParams:
+            serviceInstanceField: "['log.source']"
+            timeStampIdentifier: "['timestamp']"
+            messageIdentifier: "['content']"
+          liveMonitoringEnabled: false
+          continuousVerificationEnabled: false
+          sliEnabled: false
+          query: fetch logs| filter loglevel == "ERROR"
+        healthSourceParams: {}
   enabled: false
