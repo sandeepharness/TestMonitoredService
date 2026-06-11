@@ -1,5 +1,5 @@
 template:
-  name: run-time-feature-stage01
+  name: expression-main-stage01
   identifier: runtimefeaturestage01
   versionLabel: v1
   type: Stage
