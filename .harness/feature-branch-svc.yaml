@@ -3,3 +3,6 @@ service:
   identifier: feaurebranchsvc
   orgIdentifier: default
   projectIdentifier: gitxtest
+  serviceDefinition:
+    spec: {}
+    type: Kubernetes
