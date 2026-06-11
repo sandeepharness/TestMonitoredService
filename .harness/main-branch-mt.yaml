@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  identifier: mainbranchsvc_mainbranchenv
+  name: mainbranchsvc_mainbranchenv
+  type: Application
+  description: ""
+  serviceRef: mainbranchsvc
+  environmentRef: mainbranchenv
+  environmentRefList:
+  - mainbranchenv
+  sources: {}
+  enabled: false
