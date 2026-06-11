@@ -9,5 +9,16 @@ monitoredService:
   environmentRef: featurebranchenv
   environmentRefList:
   - featurebranchenv
-  sources: {}
+  sources:
+    healthSources:
+    - name: feature-branch-splunk
+      identifier: featurebranchsplunk
+      type: Splunk
+      spec:
+        connectorRef: splunkhs
+        feature: Splunk Cloud Logs
+        queries:
+        - name: SPLUNK Logs Query
+          query: index=_internal " error " NOT debug source=*splunkd.log*
+          serviceInstanceIdentifier: "['host']"
   enabled: false
