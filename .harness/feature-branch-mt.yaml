@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  identifier: feaurebranchsvc_featurebranchenv
+  name: feaurebranchsvc_featurebranchenv
+  type: Application
+  description: ""
+  serviceRef: feaurebranchsvc
+  environmentRef: featurebranchenv
+  environmentRefList:
+  - featurebranchenv
+  sources: {}
+  enabled: false
