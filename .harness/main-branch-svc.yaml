@@ -1,0 +1,5 @@
+service:
+  name: main-branch-svc
+  identifier: mainbranchsvc
+  orgIdentifier: default
+  projectIdentifier: gitxtest
