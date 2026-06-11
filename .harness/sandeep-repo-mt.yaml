@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  identifier: shubhendureposvc_envshubhendurepo
+  name: shubhendureposvc_envshubhendurepo
+  type: Application
+  description: ""
+  serviceRef: shubhendureposvc
+  environmentRef: envshubhendurepo
+  environmentRefList:
+  - envshubhendurepo
+  sources: {}
+  enabled: false
