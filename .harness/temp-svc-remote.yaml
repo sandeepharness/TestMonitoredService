@@ -1,0 +1,3 @@
+service:
+  name: temp-svc-remote
+  identifier: tempsvcremote
