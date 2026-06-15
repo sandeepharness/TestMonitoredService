@@ -1,0 +1,6 @@
+environment:
+  name: QA-main-branch-env
+  identifier: QAmainbranchenv
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
+  type: Production
