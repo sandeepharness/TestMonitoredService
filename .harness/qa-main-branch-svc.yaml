@@ -1,0 +1,5 @@
+service:
+  name: QA-main-branch-svc
+  identifier: QAmainbranchsvc
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
