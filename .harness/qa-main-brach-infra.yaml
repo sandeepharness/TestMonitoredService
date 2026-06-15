@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: qa-infra-main-branch
+  identifier: qainframainbranch
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
+  environmentRef: QAmainbranchenv
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: account.k8s
+    namespace: default
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: true
