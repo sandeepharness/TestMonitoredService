@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: Feature-infra-qa
+  identifier: Featureinfraqa
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
+  environmentRef: featureenv
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: account.k8s
+    namespace: default
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: true
