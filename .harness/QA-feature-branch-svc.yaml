@@ -1,0 +1,5 @@
+service:
+  name: feature-svc-01
+  identifier: featuresvc01
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
