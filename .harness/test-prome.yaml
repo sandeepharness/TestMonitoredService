@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  identifier: svcpromeremote_env_inline
+  name: svcpromeremote_env_inline
+  type: Application
+  description: ""
+  serviceRef: svcpromeremote
+  environmentRef: env_inline
+  environmentRefList:
+  - env_inline
+  sources: {}
+  enabled: false
