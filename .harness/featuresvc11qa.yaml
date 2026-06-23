@@ -1,0 +1,3 @@
+service:
+  name: feature-svc11-qa
+  identifier: featuresvc11qa
