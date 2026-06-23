@@ -1,0 +1,73 @@
+pipeline:
+  name: remote-pipline-ff-on
+  identifier: remotepiplineffon
+  projectIdentifier: CV_Sanity
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: c-v-01
+        identifier: cv01
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          service:
+            serviceRef: remotesvcffon
+          environment:
+            environmentRef: remoteenvffon
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: remoteinfraffon
+          execution:
+            steps:
+              - step:
+                  type: Verify
+                  name: AIVerifyV1_2
+                  identifier: AIVerifyV1_2
+                  spec:
+                    isMultiServicesOrEnvs: false
+                    type: Rolling
+                    monitoredService:
+                      type: Default
+                      spec: {}
+                    spec:
+                      sensitivity: HIGH
+                      duration: 5m
+                  timeout: 2h
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - Verification
+                        action:
+                          type: ManualIntervention
+                          spec:
+                            timeout: 2h
+                            onTimeout:
+                              action:
+                                type: StageRollback
+                    - onFailure:
+                        errors:
+                          - Unknown
+                        action:
+                          type: ManualIntervention
+                          spec:
+                            timeout: 2h
+                            onTimeout:
+                              action:
+                                type: Ignore
+            rollbackSteps:
+              - step:
+                  name: Rollback Rollout Deployment
+                  identifier: rollbackRolloutDeployment
+                  type: K8sRollingRollback
+                  timeout: 10m
+                  spec:
+                    pruningEnabled: false
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
