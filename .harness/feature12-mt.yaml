@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
+  identifier: testabhijith_TestEnv1
+  name: testabhijith_TestEnv1
+  type: Application
+  description: ""
+  serviceRef: testabhijith
+  environmentRef: TestEnv1
+  environmentRefList:
+  - TestEnv1
+  sources: {}
+  enabled: false
