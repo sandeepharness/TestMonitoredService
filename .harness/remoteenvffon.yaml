@@ -1,0 +1,8 @@
+environment:
+  name: remote-env-ff-on
+  identifier: remoteenvffon
+  description: ""
+  tags: {}
+  type: Production
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
