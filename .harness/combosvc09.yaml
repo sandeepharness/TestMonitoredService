@@ -1,0 +1,3 @@
+service:
+  name: combo-svc
+  identifier: combosvc
