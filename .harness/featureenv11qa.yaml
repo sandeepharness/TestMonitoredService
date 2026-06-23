@@ -1,0 +1,8 @@
+environment:
+  name: feature-env11-qa
+  identifier: featureenv11qa
+  description: ""
+  tags: {}
+  type: Production
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
