@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
+  identifier: combosvc_DynEnv
+  name: combosvc_DynEnv
+  type: Application
+  description: ""
+  serviceRef: combosvc
+  environmentRef: DynEnv
+  environmentRefList:
+  - DynEnv
+  sources: {}
+  enabled: false
