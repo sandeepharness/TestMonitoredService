@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
+  identifier: featuresvc11qa_featureenv11qa
+  name: featuresvc11qa_featureenv11qa
+  type: Application
+  description: ""
+  serviceRef: featuresvc11qa
+  environmentRef: featureenv11qa
+  environmentRefList:
+  - featureenv11qa
+  sources: {}
+  enabled: false
