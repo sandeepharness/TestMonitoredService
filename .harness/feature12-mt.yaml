@@ -9,5 +9,42 @@ monitoredService:
   environmentRef: TestEnv1
   environmentRefList:
   - TestEnv1
-  sources: {}
+  sources:
+    healthSources:
+    - name: prme-feature12
+      identifier: prmefeature12
+      type: Prometheus
+      spec:
+        connectorRef: promeprojcheck
+        metricPacks:
+        - identifier: Custom
+        metricDefinitions:
+        - identifier: prometheus_metric
+          metricName: Prometheus Metric
+          riskProfile:
+            category: Performance
+            metricType: RESP_TIME
+            riskCategory: Performance_ResponseTime
+            thresholdTypes:
+            - ACT_WHEN_LOWER
+          analysis:
+            liveMonitoring:
+              enabled: false
+            deploymentVerification:
+              enabled: true
+              serviceInstanceFieldName: instance
+            riskProfile:
+              category: Performance
+              metricType: RESP_TIME
+              riskCategory: Performance_ResponseTime
+              thresholdTypes:
+              - ACT_WHEN_LOWER
+          sli:
+            enabled: false
+          query: "(sum(rate(http_server_request_duration_seconds_count{k8s_namespace_name=\"\
+            online-boutique\",http_response_status_code!~\"5..\"}[5m])) / sum(rate(http_server_request_duration_seconds_count{k8s_namespace_name=\"\
+            online-boutique\"}[5m]))) * 100"
+          groupName: G1
+          serviceInstanceFieldName: instance
+          isManualQuery: true
   enabled: false
