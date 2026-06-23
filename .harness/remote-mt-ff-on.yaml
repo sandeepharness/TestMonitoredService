@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
+  identifier: remotesvcffon_remoteenvffon
+  name: remotesvcffon_remoteenvffon
+  type: Application
+  description: ""
+  serviceRef: remotesvcffon
+  environmentRef: remoteenvffon
+  environmentRefList:
+  - remoteenvffon
+  sources: {}
+  enabled: false
