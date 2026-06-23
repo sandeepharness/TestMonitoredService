@@ -9,5 +9,40 @@ monitoredService:
   environmentRef: NRENV
   environmentRefList:
   - NRENV
-  sources: {}
+  sources:
+    healthSources:
+    - name: cv-ff-on-prome
+      identifier: cvffonprome
+      type: Prometheus
+      spec:
+        connectorRef: promeprojcheck
+        metricPacks:
+        - identifier: Custom
+        metricDefinitions:
+        - identifier: prometheus_metric
+          metricName: Prometheus Metric
+          riskProfile:
+            category: Performance
+            metricType: RESP_TIME
+            riskCategory: Performance_ResponseTime
+            thresholdTypes:
+            - ACT_WHEN_LOWER
+          analysis:
+            liveMonitoring:
+              enabled: false
+            deploymentVerification:
+              enabled: true
+              serviceInstanceFieldName: instance
+            riskProfile:
+              category: Performance
+              metricType: RESP_TIME
+              riskCategory: Performance_ResponseTime
+              thresholdTypes:
+              - ACT_WHEN_LOWER
+          sli:
+            enabled: false
+          query: "avg(up{job=\"cv-datagen\"})"
+          groupName: g1
+          serviceInstanceFieldName: instance
+          isManualQuery: true
   enabled: false
