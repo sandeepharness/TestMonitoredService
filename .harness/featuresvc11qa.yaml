@@ -1,3 +1,8 @@
 service:
   name: feature-svc11-qa
   identifier: featuresvc11qa
+  serviceDefinition:
+    spec: {}
+    type: Kubernetes
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
