@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
+  identifier: svc_prome_NRENV
+  name: svc_prome_NRENV
+  type: Application
+  description: ""
+  serviceRef: svc_prome
+  environmentRef: NRENV
+  environmentRefList:
+  - NRENV
+  sources: {}
+  enabled: false
