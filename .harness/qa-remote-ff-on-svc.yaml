@@ -1,3 +1,8 @@
 service:
   name: remote-svc-ff-on
   identifier: remotesvcffon
+  serviceDefinition:
+    spec: {}
+    type: Kubernetes
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
