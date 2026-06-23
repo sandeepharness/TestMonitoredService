@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: remote-infra-ff-on
+  identifier: remoteinfraffon
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
+  environmentRef: remoteenvffon
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: account.k8s
+    namespace: default
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: true
