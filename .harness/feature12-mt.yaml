@@ -18,6 +18,17 @@ monitoredService:
         connectorRef: promeprojcheck
         metricPacks:
         - identifier: Custom
+          metricThresholds:
+          - metricName: Prometheus Metric
+            metricType: Custom
+            spec:
+              action: FailImmediately
+              spec: {}
+            criteria:
+              type: Percentage
+              spec:
+                greaterThan: 2.0
+            type: FailImmediately
         metricDefinitions:
         - identifier: prometheus_metric
           metricName: Prometheus Metric
