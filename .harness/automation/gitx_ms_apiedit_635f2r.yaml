@@ -1,0 +1,54 @@
+monitoredService:
+  orgIdentifier: cvng_org_5hwhVJIp3i
+  projectIdentifier: cvng_proj_LdqJrHNIU9
+  identifier: gitx_ms_apiedit_635f2r
+  name: GitX MS apiedit gitx_ms_apiedit_635f2r
+  type: Application
+  description: ""
+  serviceRef: cvng_service_9YcgAHoMt3
+  environmentRef: cvng_env_prod_pSGcGS7M7O
+  environmentRefList:
+  - cvng_env_prod_pSGcGS7M7O
+  sources:
+    healthSources:
+    - name: test
+      identifier: test
+      type: Prometheus
+      spec:
+        connectorRef: cvng_prometheus_connector_niC4m
+        metricDefinitions:
+        - identifier: PrometheusMetric
+          metricName: Prometheus Metric
+          riskProfile:
+            category: Infrastructure
+            metricType: INFRA
+            riskCategory: Infrastructure
+            thresholdTypes:
+            - ACT_WHEN_HIGHER
+          analysis:
+            liveMonitoring:
+              enabled: true
+            deploymentVerification:
+              enabled: true
+              serviceInstanceFieldName: pod
+            riskProfile:
+              category: Infrastructure
+              metricType: INFRA
+              riskCategory: Infrastructure
+              thresholdTypes:
+              - ACT_WHEN_HIGHER
+          sli:
+            enabled: true
+          query: "count(up{})"
+          groupName: prometheusGroup
+          serviceInstanceFieldName: pod
+          prometheusMetric: container_cpu_usage_seconds_total
+          serviceFilter:
+          - labelName: container
+            labelValue: cv-demo
+          envFilter:
+          - labelName: namespace
+            labelValue: cv-demo
+          aggregation: max
+          isManualQuery: false
+  enabled: false
