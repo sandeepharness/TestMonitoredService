@@ -39,7 +39,47 @@ monitoredService:
               - ACT_WHEN_HIGHER
           sli:
             enabled: true
-          query: "count(up{})"
+          query: "avg(up{})"
+          groupName: prometheusGroup
+          serviceInstanceFieldName: pod
+          prometheusMetric: container_cpu_usage_seconds_total
+          serviceFilter:
+          - labelName: container
+            labelValue: cv-demo
+          envFilter:
+          - labelName: namespace
+            labelValue: cv-demo
+          aggregation: max
+          isManualQuery: false
+    - name: hs_xMVFQ
+      identifier: hs_xMVFQ
+      type: Prometheus
+      spec:
+        connectorRef: cvng_prometheus_connector_veHks
+        metricDefinitions:
+        - identifier: hs_xMVFQ_metric
+          metricName: hs_xMVFQ metric
+          riskProfile:
+            category: Infrastructure
+            metricType: INFRA
+            riskCategory: Infrastructure
+            thresholdTypes:
+            - ACT_WHEN_HIGHER
+          analysis:
+            liveMonitoring:
+              enabled: true
+            deploymentVerification:
+              enabled: true
+              serviceInstanceFieldName: pod
+            riskProfile:
+              category: Infrastructure
+              metricType: INFRA
+              riskCategory: Infrastructure
+              thresholdTypes:
+              - ACT_WHEN_HIGHER
+          sli:
+            enabled: true
+          query: "avg(up{})"
           groupName: prometheusGroup
           serviceInstanceFieldName: pod
           prometheusMetric: container_cpu_usage_seconds_total
