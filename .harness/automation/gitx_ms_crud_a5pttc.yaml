@@ -2,7 +2,7 @@ monitoredService:
   orgIdentifier: cvng_org_7qGCOr8Ah5
   projectIdentifier: cvng_proj_sqxu3pDtuk
   identifier: gitx_ms_crud_a5pttc
-  name: GitX MS CRUD gitx_ms_crud_a5pttc
+  name: GitX MS CRUD updated gitx_ms_crud_a5pttc
   type: Application
   description: ""
   serviceRef: cvng_service_xwXjvFZdLj
