@@ -1,0 +1,55 @@
+monitoredService:
+  orgIdentifier: cvng_org_XiRVJaEE3j
+  projectIdentifier: cvng_proj_zuQogK3KGX
+  identifier: gitx_ms_import_RuDozy
+  name: GitX MS import gitx_ms_import_RuDozy
+  type: Application
+  description: ""
+  serviceRef: cvng_service_KwKDfolHN6
+  environmentRef: cvng_env_prod_G9Qlu9J6aM
+  environmentRefList:
+  - cvng_env_prod_G9Qlu9J6aM
+  sources:
+    healthSources:
+    - name: test
+      identifier: test
+      type: Prometheus
+      spec:
+        connectorRef: cvng_prometheus_connector_4owXD
+        metricDefinitions:
+        - identifier: PrometheusMetric
+          metricName: Prometheus Metric
+          riskProfile:
+            category: Infrastructure
+            metricType: INFRA
+            riskCategory: Infrastructure
+            thresholdTypes:
+            - ACT_WHEN_HIGHER
+          analysis:
+            liveMonitoring:
+              enabled: true
+            deploymentVerification:
+              enabled: true
+              serviceInstanceFieldName: pod
+            riskProfile:
+              category: Infrastructure
+              metricType: INFRA
+              riskCategory: Infrastructure
+              thresholdTypes:
+              - ACT_WHEN_HIGHER
+          sli:
+            enabled: true
+          query: "max(container_cpu_usage_seconds_total{container=\"cv-demo\",namespace=\"\
+            cv-demo\"})"
+          groupName: prometheusGroup
+          serviceInstanceFieldName: pod
+          prometheusMetric: container_cpu_usage_seconds_total
+          serviceFilter:
+          - labelName: container
+            labelValue: cv-demo
+          envFilter:
+          - labelName: namespace
+            labelValue: cv-demo
+          aggregation: max
+          isManualQuery: false
+  enabled: false
