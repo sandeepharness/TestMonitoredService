@@ -1,0 +1,13 @@
+monitoredService:
+  orgIdentifier: cvng_org_QnhniBcyGy
+  projectIdentifier: cvng_proj_rIg3CXWfGo
+  identifier: testsvc_testenv
+  name: testsvc_testenv
+  type: Application
+  description: ""
+  serviceRef: testsvc
+  environmentRef: testenv
+  environmentRefList:
+  - testenv
+  sources: {}
+  enabled: false
