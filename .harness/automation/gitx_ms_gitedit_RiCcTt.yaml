@@ -1,0 +1,54 @@
+monitoredService:
+  orgIdentifier: cvng_org_9OEQWPmg0q
+  projectIdentifier: cvng_proj_vydjt1OGAw
+  identifier: gitx_ms_gitedit_RiCcTt
+  name: GitX MS gitedit gitx_ms_gitedit_RiCcTt
+  type: Application
+  description: ""
+  serviceRef: cvng_service_Pmf4qj4V4H
+  environmentRef: cvng_env_prod_EBMNXp8cCv
+  environmentRefList:
+  - cvng_env_prod_EBMNXp8cCv
+  sources:
+    healthSources:
+    - name: test
+      identifier: test
+      type: Prometheus
+      spec:
+        connectorRef: cvng_prometheus_connector_OB9A8
+        metricDefinitions:
+        - identifier: PrometheusMetric
+          metricName: Prometheus Metric
+          riskProfile:
+            category: Infrastructure
+            metricType: INFRA
+            riskCategory: Infrastructure
+            thresholdTypes:
+            - ACT_WHEN_HIGHER
+          analysis:
+            liveMonitoring:
+              enabled: true
+            deploymentVerification:
+              enabled: true
+              serviceInstanceFieldName: pod
+            riskProfile:
+              category: Infrastructure
+              metricType: INFRA
+              riskCategory: Infrastructure
+              thresholdTypes:
+              - ACT_WHEN_HIGHER
+          sli:
+            enabled: true
+          query: "count(up{})"
+          groupName: prometheusGroup
+          serviceInstanceFieldName: pod
+          prometheusMetric: container_cpu_usage_seconds_total
+          serviceFilter:
+          - labelName: container
+            labelValue: cv-demo
+          envFilter:
+          - labelName: namespace
+            labelValue: cv-demo
+          aggregation: max
+          isManualQuery: false
+  enabled: false
