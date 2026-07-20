@@ -2,9 +2,9 @@ monitoredService:
   orgIdentifier: cvng_org_EbM0P5rhGT
   projectIdentifier: cvng_proj_Ngu8zpgq7s
   identifier: gitx_ms_gitedit_ExT2b4
-  name: GitX MS gitedit gitx_ms_gitedit_ExT2b4
+  name: GitX MS gitedit updated gitx_ms_gitedit_ExT2b4
   type: Application
-  description: ""
+  description: ''
   serviceRef: cvng_service_xKCsVgIM18
   environmentRef: cvng_env_prod_j8lTMqJr2X
   environmentRefList:
@@ -39,7 +39,7 @@ monitoredService:
               - ACT_WHEN_HIGHER
           sli:
             enabled: true
-          query: "count(up{})"
+          query: sum(up{})
           groupName: prometheusGroup
           serviceInstanceFieldName: pod
           prometheusMetric: container_cpu_usage_seconds_total
