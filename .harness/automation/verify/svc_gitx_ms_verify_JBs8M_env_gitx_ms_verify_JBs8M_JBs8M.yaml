@@ -1,0 +1,50 @@
+monitoredService:
+  orgIdentifier: cvng_org_rU1KNM4V0I
+  projectIdentifier: cvng_proj_Y1WVH5Sabw
+  identifier: svc_gitx_ms_verify_JBs8M_env_gitx_ms_verify_JBs8M_JBs8M
+  name: svc_gitx_ms_verify_JBs8M_env_gitx_ms_verify_JBs8M_JBs8M
+  type: Application
+  description: ""
+  serviceRef: svc_gitx_ms_verify_JBs8M
+  environmentRef: env_gitx_ms_verify_JBs8M
+  environmentRefList:
+  - env_gitx_ms_verify_JBs8M
+  sources:
+    healthSources:
+    - name: hs-prometheus
+      identifier: hsprometheus
+      type: Prometheus
+      spec:
+        connectorRef: cvng_gitx_prometheus_connector_9x5nc
+        metricPacks:
+        - identifier: Custom
+        metricDefinitions:
+        - identifier: prometheus_metric
+          metricName: Prometheus Metric
+          riskProfile:
+            category: Performance
+            metricType: OTHER
+            riskCategory: Performance_Other
+            thresholdTypes:
+            - ACT_WHEN_LOWER
+            - ACT_WHEN_HIGHER
+          analysis:
+            liveMonitoring:
+              enabled: false
+            deploymentVerification:
+              enabled: true
+              serviceInstanceFieldName: instance
+            riskProfile:
+              category: Performance
+              metricType: OTHER
+              riskCategory: Performance_Other
+              thresholdTypes:
+              - ACT_WHEN_LOWER
+              - ACT_WHEN_HIGHER
+          sli:
+            enabled: false
+          query: "up{job=\"cv-datagen\"}"
+          groupName: group1
+          serviceInstanceFieldName: instance
+          isManualQuery: true
+  enabled: false
