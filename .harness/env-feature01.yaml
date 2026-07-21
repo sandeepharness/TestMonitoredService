@@ -1,0 +1,6 @@
+environment:
+  name: feature-branch-env
+  identifier: featurebranchenv
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  type: Production

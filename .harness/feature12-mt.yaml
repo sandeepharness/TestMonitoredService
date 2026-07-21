@@ -1,0 +1,58 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: CV_Sanity
+  identifier: testabhijith_TestEnv1
+  name: testabhijith_TestEnv1
+  type: Application
+  description: ""
+  serviceRef: testabhijith
+  environmentRef: TestEnv1
+  environmentRefList:
+  - TestEnv1
+  sources:
+    healthSources:
+    - name: vvvv
+      identifier: vvvv
+      type: Splunk
+      spec:
+        connectorRef: account.spl
+        feature: Splunk Cloud Logs
+        queries:
+        - name: SPLUNK Logs Query
+          query: index=_internal " error " NOT debug source=*splunkd.log*
+          serviceInstanceIdentifier: "['host']"
+    - name: cv-p
+      identifier: cvp
+      type: Prometheus
+      spec:
+        connectorRef: promeprojcheck
+        metricPacks:
+        - identifier: Custom
+        metricDefinitions:
+        - identifier: prometheus_metric
+          metricName: Prometheus Metric
+          riskProfile:
+            category: Performance
+            metricType: RESP_TIME
+            riskCategory: Performance_ResponseTime
+            thresholdTypes:
+            - ACT_WHEN_LOWER
+          analysis:
+            liveMonitoring:
+              enabled: false
+            deploymentVerification:
+              enabled: true
+              serviceInstanceFieldName: instance
+            riskProfile:
+              category: Performance
+              metricType: RESP_TIME
+              riskCategory: Performance_ResponseTime
+              thresholdTypes:
+              - ACT_WHEN_LOWER
+          sli:
+            enabled: false
+          query: "avg(up{job=\"cv-datagen\"})"
+          groupName: G1
+          serviceInstanceFieldName: instance
+          isManualQuery: true
+  enabled: false

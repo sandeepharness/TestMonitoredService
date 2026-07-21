@@ -1,0 +1,48 @@
+monitoredService:
+  orgIdentifier: default
+  projectIdentifier: gitxtest
+  identifier: featuresvc01_featureenv01
+  name: featuresvc01_featureenv01
+  type: Application
+  description: ""
+  serviceRef: featuresvc01
+  environmentRef: featureenv01
+  environmentRefList:
+  - featureenv01
+  sources:
+    healthSources:
+    - name: cv-feature-01
+      identifier: cvfeature01
+      type: Prometheus
+      spec:
+        connectorRef: account.promeacc
+        metricPacks:
+        - identifier: Custom
+        metricDefinitions:
+        - identifier: prometheus_metric
+          metricName: Prometheus Metric
+          riskProfile:
+            category: Performance
+            metricType: RESP_TIME
+            riskCategory: Performance_ResponseTime
+            thresholdTypes:
+            - ACT_WHEN_LOWER
+          analysis:
+            liveMonitoring:
+              enabled: false
+            deploymentVerification:
+              enabled: true
+              serviceInstanceFieldName: instance
+            riskProfile:
+              category: Performance
+              metricType: RESP_TIME
+              riskCategory: Performance_ResponseTime
+              thresholdTypes:
+              - ACT_WHEN_LOWER
+          sli:
+            enabled: false
+          query: "avg(up{job=\"cv-datagen\"})"
+          groupName: G1
+          serviceInstanceFieldName: instance
+          isManualQuery: true
+  enabled: false

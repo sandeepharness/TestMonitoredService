@@ -1,0 +1,63 @@
+template:
+  name: feature-stage-temp
+  identifier: featurestagetemp
+  versionLabel: v1
+  type: Stage
+  projectIdentifier: gitxtest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Deployment
+    spec:
+      deploymentType: Kubernetes
+      environment:
+        environmentRef: featurebranchenv
+        deployToAll: false
+        infrastructureDefinitions:
+          - identifier: featurebranchinfra
+      service:
+        serviceRef: feaurebranchsvc
+      execution:
+        steps:
+          - step:
+              type: Verify
+              name: Verify_1
+              identifier: Verify_1
+              spec:
+                isMultiServicesOrEnvs: false
+                type: Rolling
+                monitoredService:
+                  type: Default
+                  spec: {}
+                spec:
+                  sensitivity: HIGH
+                  duration: 5m
+              timeout: 2h
+              failureStrategies:
+                - onFailure:
+                    errors:
+                      - Verification
+                    action:
+                      type: ManualIntervention
+                      spec:
+                        timeout: 2h
+                        onTimeout:
+                          action:
+                            type: StageRollback
+                - onFailure:
+                    errors:
+                      - Unknown
+                    action:
+                      type: ManualIntervention
+                      spec:
+                        timeout: 2h
+                        onTimeout:
+                          action:
+                            type: Ignore
+        rollbackSteps: []
+    failureStrategies:
+      - onFailure:
+          errors:
+            - AllErrors
+          action:
+            type: StageRollback

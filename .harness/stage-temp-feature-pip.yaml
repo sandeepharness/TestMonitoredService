@@ -1,0 +1,14 @@
+pipeline:
+  name: feature-stage-test
+  identifier: featurestagetest
+  projectIdentifier: gitxtest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: feature-stage-test
+        identifier: featurestagetest
+        tags: {}
+        template:
+          templateRef: featurestagetemp
+          versionLabel: v1
